@@ -1,0 +1,78 @@
+.plyr__controls .plyr__controls__item:first-child {margin-right:0 !important}
+    .plyr__time{margin-right:auto;}
+    :root { --chat-height: 500px; }
+
+    /* Layout Utama */
+    .main-vid { 
+        display: flex; flex-direction: column; width: 100%; gap: 10px; 
+        box-sizing: border-box; line-height: normal; font-family: 'Inter', sans-serif; 
+    }
+
+    @media (min-width: 992px) {
+        .main-vid { flex-direction: row; align-items: flex-start; }
+        .main-vid .vid-content { flex: 2; }
+        .main-vid .chat-sidebar { flex: 1; height: var(--chat-height); position: sticky; }
+    }
+
+    /* Video Section */
+    .main-vid .vid-content { position: relative; background: #000; border-radius: 8px; overflow: hidden; color: #fff; }
+    .main-vid .vid-content video { width: 100%; height: 100%; object-fit: contain; }
+    
+    #plyr--logo { position: absolute; top: 15px; left: 15px; z-index: 1; display: flex; align-items: center; gap: 8px; pointer-events: none; }
+    .viewer-badge { background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px); padding: 3px 8px; border-radius: 20px; font-size: 11px; display: flex; align-items: center; gap: 6px; }
+    .live-label { background: #fe0002; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 11px; text-transform: uppercase; }
+
+    /* Lucide Icon Styling */
+    .lucide { width: 18px; height: 18px; stroke-width: 2; vertical-align: middle; }
+    .lucide-sm { width: 14px; height: 14px; }
+
+    /* Chat Sidebar */
+    .main-vid .chat-sidebar { 
+        background: rgba(20, 20, 20, 0.98); border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px; display: flex; flex-direction: column; overflow: hidden; 
+        position: relative; height: var(--chat-height); transition: height 0.3s ease;
+    }
+    .chat-sidebar.collapsed { height: 45px !important; min-height: 45px !important; }
+    
+    /* Animasi Ikon Chevron */
+    .toggle-icon { transition: transform 0.3s ease; }
+    .chat-sidebar.collapsed .toggle-icon { transform: rotate(180deg); }
+
+    /* Auth Overlay */
+    #auth-overlay {
+        position: absolute; inset: 0; background: #111; z-index: 100;
+        display: none; flex-direction: column; align-items: center; justify-content: center; padding: 25px;
+    }
+    #auth-overlay input { 
+        width: 100%; padding: 12px; margin-bottom: 12px; border-radius: 8px; 
+        border: 1px solid #333; background: #222; color: #fff; outline: none; box-sizing: border-box;
+    }
+    #auth-overlay button { 
+        width: 100%; padding: 12px; border: none; border-radius: 8px; 
+        background: #fe0002; color: #fff; font-weight: bold; cursor: pointer;
+    }
+
+    /* Header & Chat Box */
+    .chat-top { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; color: #fff; font-weight: bold; cursor: pointer; }
+    #chat-badge { background: #fe0002; color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; display: none; margin-left: 5px; }
+    #chat-box { flex: 1; overflow-y: auto; padding: 15px; display: flex; flex-direction: column; gap: 12px; scroll-behavior: smooth; }
+    
+    .msg-item { display: flex; gap: 10px; animation: slideUp 0.3s ease; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fff; flex-shrink: 0; font-size: 12px;}
+    .msg-user { color: #fff; font-weight: 700; font-size: 12px; }
+    .msg-time { color: #8d8f91; font-size: 11px; margin-left: 5px; }
+    .msg-text { color: #ccc; font-size: 13px; line-height: 1.4; word-break: break-word; }
+
+    /* Action Buttons */
+    .action-btn { cursor: pointer; color: #666; transition: 0.2s; margin-left: 8px; display: flex; align-items: center; }
+    .action-btn:hover { color: #fe0002; }
+
+    /* Footer */
+    .chat-footer { padding: 15px; background: rgba(26, 26, 26, 0.9); border-top: 1px solid rgba(255,255,255,0.1); }
+    .emoji-bar { display: flex; gap: 12px; font-size: 16px; margin-bottom: 10px; cursor: pointer; }
+    .input-group { display: flex; gap: 8px; }
+    .input-group input { flex: 1; background: #222; border: 1px solid #333; color: #fff; padding: 10px 15px; border-radius: 25px; outline: none; font-size: 12px; }
+    #btn-send { background: #fe0002; color: #fff; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+    #reply-preview { display: none; background: #252525; padding: 10px; border-left: 4px solid #fe0002; font-size: 11px; margin-bottom: 5px; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
