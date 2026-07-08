@@ -7,10 +7,18 @@
     /* Layout Utama */
     .main-vid { display: flex; flex-direction: column; width: 100%; gap: 10px; box-sizing: border-box; line-height: normal; font-family: 'Inter', sans-serif; }
     @media (min-width: 992px) {
-        .main-vid { flex-direction: row; align-items: flex-start; }
-        .main-vid .vid-content { flex: 2; }
-        .main-vid .chat-sidebar { flex: 1; height: var(--chat-height); position: sticky; top: 0; }
+    .main-vid { 
+        flex-direction: row; 
+        align-items: stretch; /* Ini akan memaksa chat box mengikuti tinggi video */
     }
+    .main-vid .vid-content { flex: 2; }
+    .main-vid .chat-sidebar { 
+        flex: 1; 
+        height: auto; /* Menghapus tinggi statis 500px di mode desktop */
+        position: sticky; 
+        top: 0; 
+    }
+}
 
     /* Video Section */
     .main-vid .vid-content { position: relative; background: #000; border-radius: 8px; overflow: hidden; color: #fff; aspect-ratio: 16/9; }
