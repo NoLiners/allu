@@ -9,8 +9,12 @@
     @media (min-width: 992px) {
     .main-vid { 
         flex-direction: row; 
-        align-items: stretch; /* Ini akan memaksa chat box mengikuti tinggi video */
+        align-items: flex-start; /* KEMBALIKAN ke flex-start agar video tidak meledak */
     }
+    .main-vid .chat-sidebar { 
+        aspect-ratio: 8 / 9; /* Trik agar tinggi chat otomatis selalu sama dengan tinggi video */
+    }
+}
     .main-vid .vid-content { flex: 2; }
     .main-vid .chat-sidebar { 
         flex: 1; 
